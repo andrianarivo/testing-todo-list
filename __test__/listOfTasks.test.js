@@ -1,15 +1,15 @@
 import TaskStore from '../src/modules/TaskStore.js';
 
-describe('List of Tasks', () => {
-  test('Render Tasks', () => {
+describe('list of tasks', () => {
+  test('render tasks', () => {
     // Arrange
     document.body.innerHTML = `
       <ul></ul>
     `;
     const taskStore = new TaskStore();
+    const listContainer = document.querySelector('ul');
 
     // Act
-    const listContainer = document.querySelector('ul');
     listContainer.innerHTML = taskStore.renderTasks();
 
     // Assert
