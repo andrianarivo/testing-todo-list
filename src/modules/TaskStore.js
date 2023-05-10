@@ -9,6 +9,10 @@ export default class TaskStore {
     this.tasksArray = getTasks();
   }
 
+  length() {
+    return this.tasksArray.length;
+  }
+
   getNextIndex() {
     return this.tasksArray.length + 1;
   }
@@ -57,7 +61,14 @@ export default class TaskStore {
       <li class="list-group-item d-flex justify-content-between align-items-baseline">
         <input id="add-new-task" placeholder="Add to your list..." />
         <a id="btn-add-task" href="#"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
-      </li>`;
+      </li>
+    `;
+    content += this.renderTasks();
+    return content;
+  }
+
+  renderTasks() {
+    let content = '';
     this.tasksArray.sort((task1, task2) => task1.index - task2.index);
     this.tasksArray.forEach((task) => {
       content += `
@@ -67,13 +78,9 @@ export default class TaskStore {
           <p class="task-title ${task.completed ? 'text-decoration-line-through' : ''}">${task.description}</p>
         </div>
         <a class="move-task" href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
-      </li>`;
+      </li>
+    `;
     });
     return content;
-  }
-
-  // Check if empty
-  empty() {
-    return this.tasksArray.length === 0;
   }
 }
