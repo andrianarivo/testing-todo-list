@@ -9,6 +9,10 @@ export default class TaskStore {
     this.tasksArray = getTasks();
   }
 
+  length() {
+    return this.tasksArray.length;
+  }
+
   getNextIndex() {
     return this.tasksArray.length + 1;
   }
@@ -58,6 +62,12 @@ export default class TaskStore {
         <input id="add-new-task" placeholder="Add to your list..." />
         <a id="btn-add-task" href="#"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
       </li>`;
+    content += this.renderTasks();
+    return content;
+  }
+
+  renderTasks() {
+    let content = '';
     this.tasksArray.sort((task1, task2) => task1.index - task2.index);
     this.tasksArray.forEach((task) => {
       content += `
