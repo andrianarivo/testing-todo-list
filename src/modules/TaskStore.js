@@ -29,7 +29,7 @@ export default class TaskStore {
   }
 
   editTask(index, newDescription) {
-    this.tasksArray[index].description = newDescription;
+    this.tasksArray[index - 1].description = newDescription;
     saveTasks(this.tasksArray);
   }
 
