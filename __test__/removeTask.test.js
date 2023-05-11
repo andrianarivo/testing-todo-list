@@ -1,6 +1,12 @@
+import { saveTasks } from '../src/modules/Storage.js';
 import TaskStore from '../src/modules/TaskStore.js';
 
-jest.mock('../src/modules/Storage');
+beforeEach(() => {
+  saveTasks([
+    { index: 1, description: 'Task 1', completion: false },
+    { index: 2, description: 'Task 2', completion: false },
+  ]);
+});
 
 describe('remove tasks', () => {
   test('remove one task', () => {
