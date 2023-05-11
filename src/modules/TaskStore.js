@@ -41,7 +41,7 @@ export default class TaskStore {
   }
 
   toggleTask(index) {
-    this.tasksArray[index - 1].completed = !this.tasksArray[index - 1].completed;
+    this.tasksArray[index - 1].completion = !this.tasksArray[index - 1].completion;
     saveTasks(this.tasksArray);
   }
 
@@ -74,7 +74,7 @@ export default class TaskStore {
       content += `
       <li class="task-item list-group-item d-flex justify-content-between align-items-baseline" id="${task.index}">
         <div class="d-flex gap-2 align-items-baseline">
-          <input type="checkbox" id="${task.index}" class="task-completed form-check-input" ${task.completed ? 'checked' : ''}/>
+          <input type="checkbox" id="${task.index}" class="task-completed form-check-input" ${task.completion ? 'checked' : ''}/>
           <p class="task-title ${task.completed ? 'text-decoration-line-through' : ''}">${task.description}</p>
         </div>
         <a class="move-task" href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>

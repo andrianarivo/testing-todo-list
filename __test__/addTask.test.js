@@ -1,7 +1,5 @@
 import TaskStore from '../src/modules/TaskStore.js';
 
-jest.mock('../src/modules/Storage');
-
 describe('adding tasks', () => {
   test('add one task', () => {
     // Arrange
@@ -12,7 +10,7 @@ describe('adding tasks', () => {
     const listContainer = document.querySelector('ul');
 
     // Act
-    taskStore.addTask({ index: 3, description: 'Task 3', completed: false });
+    taskStore.addTask({ index: 3, description: 'Task 3', completion: false });
     listContainer.innerHTML = taskStore.renderTasks();
 
     // Assert
@@ -28,10 +26,10 @@ describe('adding tasks', () => {
     const listContainer = document.querySelector('ul');
 
     // Act
-    taskStore.addTask({ index: 3, description: 'Task 3', completed: false });
-    taskStore.addTask({ index: 4, description: 'Task 3', completed: false });
-    taskStore.addTask({ index: 5, description: 'Task 3', completed: false });
-    taskStore.addTask({ index: 6, description: 'Task 3', completed: false });
+    taskStore.addTask({ index: 3, description: 'Task 3', completion: false });
+    taskStore.addTask({ index: 4, description: 'Task 3', completion: false });
+    taskStore.addTask({ index: 5, description: 'Task 3', completion: false });
+    taskStore.addTask({ index: 6, description: 'Task 3', completion: false });
     listContainer.innerHTML = taskStore.renderTasks();
 
     // Assert
