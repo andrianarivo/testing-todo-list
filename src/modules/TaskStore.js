@@ -46,7 +46,7 @@ export default class TaskStore {
   }
 
   removeCompleted() {
-    this.tasksArray = this.tasksArray.filter((task) => !task.completed);
+    this.tasksArray = this.tasksArray.filter((task) => !task.completion);
     this.indexTasks();
     saveTasks(this.tasksArray);
   }
